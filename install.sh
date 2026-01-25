@@ -53,7 +53,7 @@ if lspci | grep -i 'nvidia' >/dev/null 2>&1; then
     use_nvidia=${use_nvidia:-Y}
 
     if [[ "$use_nvidia" =~ ^[Yy]$ ]]; then
-        sed -i 's|exec java -jar /usr/share/tlauncher/tlauncher.jar|exec env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia java -jar /usr/share/tlauncher/tlauncher.jar|' /usr/bin/tlauncher
+        sudo sed -i 's|exec java -jar /usr/share/tlauncher/tlauncher.jar|exec env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia java -jar /usr/share/tlauncher/tlauncher.jar|' /usr/bin/tlauncher
     fi
 fi
 
