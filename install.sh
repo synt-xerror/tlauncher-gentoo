@@ -8,12 +8,27 @@ info_msg() {
   echo -e "\n\033[1;32m${1}\033[0m"
 }
 
-info_msg "Installing Packages ..."
-sudo pacman -Sy --noconfirm --needed wget git unzip jre-openjdk
+echo "These dependencies need to be installed:"
+echo "- net-misc/wget"
+echo "- dev-vcs/git"
+echo "- app-arch/unzip"
+echo "- dev-java/openjdk-jre-bin"
+echo ""
+read -p "Before continue, would you like to compile dependencies? (y/N): " compile
+
+if [[ "$compile" =~ ^[Yy]$ ]]; then
+    info_msg "Compiling and installing ..."
+    sleep 2
+    sudo emerge --noreplace net-misc/wget dev-vcs/git app-arch/unzip dev-java/openjdk-jre-bin
+else
+    info_msg "Installing using binary packages when available ..."
+    sleep 2
+    sudo emerge --noreplace -g net-misc/wget dev-vcs/git app-arch/unzip dev-java/openjdk-jre-bin
+fi
 
 cleanup() {
-    info_msg "Cleaning up previous tlauncher-arch installation ..."
-    [[ -d "$HOME/tlauncher-arch" ]] && rm -rf "$HOME/tlauncher-arch"
+    info_msg "Cleaning up previous tlauncher-gentoo installation ..."
+    [[ -d "$HOME/tlauncher-gentoo" ]] && rm -rf "$HOME/tlauncher-gentoo"
     [[ -d "/usr/share/tlauncher" ]] && sudo rm -rf /usr/share/tlauncher
     [[ -f "/usr/bin/tlauncher" ]] && sudo rm -f /usr/bin/tlauncher
     [[ -f "/usr/share/icons/tlauncher.png" ]] && sudo rm -f /usr/share/icons/tlauncher.png
@@ -21,7 +36,7 @@ cleanup() {
 }
 
 # If previous clone exists, ask user whether to cleanup
-if [[ -d "$HOME/tlauncher-arch" ]]; then
+if [[ -d "$HOME/tlauncher-gentoo" ]]; then
     read -p "If your previous attempt had failed in middle, you can retry with cleanup. Do you want to cleanup? (y/N): " do_cleanup
     if [[ "$do_cleanup" =~ ^[Yy]$ ]]; then
         cleanup
@@ -31,8 +46,8 @@ if [[ -d "$HOME/tlauncher-arch" ]]; then
 fi
 
 info_msg "Cloning Repo ..."
-git clone https://github.com/mttomaz/tlauncher-arch.git "$HOME/tlauncher-arch"
-cd "$HOME/tlauncher-arch" || exit
+git clone https://github.com/synt-xerror/tlauncher-gentoo.git "$HOME/tlauncher-gentoo"
+cd "$HOME/tlauncher-gentoo" || exit
 
 info_msg "Downloading TLauncher ..."
 wget https://tlauncher.org/jar -P src/
@@ -58,5 +73,5 @@ if lspci | grep -i 'nvidia' >/dev/null 2>&1; then
 fi
 
 cd "$OLDPWD" || exit
-rm -rf "$HOME/tlauncher-arch"
+rm -rf "$HOME/tlauncher-gentoo"
 info_msg "Installation Complete!"
