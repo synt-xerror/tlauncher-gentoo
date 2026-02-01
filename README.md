@@ -1,14 +1,14 @@
 <div align="center">
 
-# tlauncher-arch
-[![stars](https://img.shields.io/github/stars/mttomaz/tlauncher-arch?color=7E9CD8&style=for-the-badge)](https://github.com/mttomaz/tlauncher-arch/stargazers)
-[![issues](https://img.shields.io/github/issues/mttomaz/tlauncher-arch?color=FF5D62&style=for-the-badge)](https://github.com/mttomaz/tlauncher-arch/issues)
-[![size](https://img.shields.io/github/repo-size/mttomaz/tlauncher-arch?color=76946A&style=for-the-badge)](https://github.com/mttomaz/tlauncher-arch)
-[![license](https://img.shields.io/github/license/mttomaz/tlauncher-arch?color=957FB8&style=for-the-badge)](https://github.com/mttomaz/tlauncher-arch/blob/master/LICENSE)
+# tlauncher-gentoo
+[![stars](https://img.shields.io/github/stars/synt-xerror/tlauncher-gentoo?color=7E9CD8&style=for-the-badge)](https://github.com/synt-xerror/tlauncher-gentoo/stargazers)
+[![issues](https://img.shields.io/github/issues/synt-xerror/tlauncher-gentoo?color=FF5D62&style=for-the-badge)](https://github.com/synt-xerror/tlauncher-gentoo/issues)
+[![size](https://img.shields.io/github/repo-size/synt-xerror/tlauncher-gentoo?color=76946A&style=for-the-badge)](https://github.com/synt-xerror/tlauncher-gentoo)
+[![license](https://img.shields.io/github/license/synt-xerror/tlauncher-gentoo?color=957FB8&style=for-the-badge)](https://github.com/synt-xerror/tlauncher-gentoo/blob/master/LICENSE)
 
 </div>
 
-This is a repo that i made to install TLauncher on Arch Linux directly from their [site](https://tlauncher.org/).
+This is a repo that i made to install TLauncher on Gentoo Linux directly from their [site](https://tlauncher.org/).
 
 > [!Warning]
 > This script is only a tool to facilitate the download of TLauncher.
@@ -20,7 +20,7 @@ This is a repo that i made to install TLauncher on Arch Linux directly from thei
 Run the following command to install TLauncher:
 
 ```bash
-bash <(curl -fsSl https://raw.githubusercontent.com/mttomaz/tlauncher-arch/master/install.sh)
+bash <(curl -fsSl https://raw.githubusercontent.com/synt-xerror/tlauncher-gentoo/master/install.sh)
 ```
 
 ## Usage
